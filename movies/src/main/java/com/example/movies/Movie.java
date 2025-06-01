@@ -23,7 +23,7 @@ public class Movie {
     @JsonProperty("id") // Explicitly map to JSON field "id"
     private ObjectId id;
 
-    //@JsonProperty("imdbId") // Explicitly map to JSON field "imdbId"
+    @JsonProperty("imdbId") // Explicitly map to JSON field "imdbId"
     private String imdbId;
 
     @JsonProperty("")

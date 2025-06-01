@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 // using service class to delegate the task of fetching from database and giving it to api layer,
 // calls allmovies, gets the list of movie returns with the status http.ok,
 import java.util.List;
+import java.util.Optional;
 
 //this is first official  restapi  controller
 @RestController
@@ -25,8 +26,10 @@ public class MovieController {
         return new ResponseEntity<List<Movie>>(movieService.allMovie(), HttpStatus.OK);
 
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Movie> getOneMovie(@PathVariable ObjectId id){  //whatever we getin this path we will convert it to objrct id called id
+    public ResponseEntity<Optional<Movie>> getOneMovie(@PathVariable String id){  //whatever we getin this path we will cnvert it to objrct id called id
+        return new ResponseEntity<Optional<Movie>>(movieService.oneMovie(id), HttpStatus.OK);
 
     }
 
